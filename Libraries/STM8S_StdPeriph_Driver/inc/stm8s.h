@@ -206,6 +206,7 @@
 #define     __O     volatile         /*!< defines 'write only' permissions    */
 #define     __IO    volatile         /*!< defines 'read / write' permissions  */
 
+#ifndef _STDINT // add for FreeModbus
 /*!< Signed integer types  */
 typedef   signed char     int8_t;
 typedef   signed short    int16_t;
@@ -215,6 +216,7 @@ typedef   signed long     int32_t;
 typedef unsigned char     uint8_t;
 typedef unsigned short    uint16_t;
 typedef unsigned long     uint32_t;
+#endif
 
 /*!< STM8 Standard Peripheral Library old types (maintained for legacy purpose) */
 
@@ -226,8 +228,9 @@ typedef uint32_t  u32;
 typedef uint16_t u16;
 typedef uint8_t  u8;
 
-
+#ifndef _PORT_H // add for FreeModbus
 typedef enum {FALSE = 0, TRUE = !FALSE} bool;
+#endif
 
 typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus, BitStatus, BitAction;
 
